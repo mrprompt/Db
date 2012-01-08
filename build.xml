@@ -21,7 +21,7 @@
 
         <phpcodesniffer standard="Zend"
                         format="full"
-                        showWarnings="false"
+                        showWarnings="true"
                         tabWidth="4"
                         file="."
                         docGenerator="Text"

@@ -14,7 +14,7 @@ class MetadataTest extends \PHPUnit_Framework_TestCase
     /**
      * @var Metadata
      */
-    protected $_object;
+    protected $_obj;
 
     const METADATA_PATH = '../config/queries.xml';
 
@@ -24,7 +24,7 @@ class MetadataTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->_object = new Metadata(self::METADATA_PATH);
+        $this->_obj = new Metadata(self::METADATA_PATH);
     }
 
     /**
@@ -38,7 +38,7 @@ class MetadataTest extends \PHPUnit_Framework_TestCase
 
     public function testConstructExists()
     {
-        $this->assertTrue(method_exists($this->_object, '__construct'));
+        $this->assertTrue(method_exists($this->_obj, '__construct'));
     }
 
     public function testSetXmlReturnExceptionFileNotFound()
@@ -49,47 +49,47 @@ class MetadataTest extends \PHPUnit_Framework_TestCase
 
     public function testSetXmlExists()
     {
-        $this->assertTrue(method_exists($this->_object, 'setXml'));
+        $this->assertTrue(method_exists($this->_obj, 'setXml'));
     }
 
     public function testSetXmlReturnObject()
     {
-        $object = is_object($this->_object->setXml(self::METADATA_PATH));
+        $object = is_obj($this->_obj->setXml(self::METADATA_PATH));
         $this->assertTrue($object);
     }
 
     public function testSetGetXmlExists()
     {
-        $this->assertTrue(method_exists($this->_object, 'getXml'));
+        $this->assertTrue(method_exists($this->_obj, 'getXml'));
     }
 
     public function testGetConnectionExists()
     {
-        $this->assertTrue(method_exists($this->_object, 'getConnection'));
+        $this->assertTrue(method_exists($this->_obj, 'getConnection'));
     }
 
     public function testGetConnectionReturnObject()
     {
-        $this->assertTrue(is_object($this->_object->getConnection('default')));
+        $this->assertTrue(is_obj($this->_obj->getConnection('default')));
     }
 
     public function testGetDefaultConnectionExists()
     {
-        $this->assertTrue(method_exists($this->_object, 'getDefaultConnection'));
+        $this->assertTrue(method_exists($this->_obj, 'getDefaultConnection'));
     }
 
     public function testGetDefaultConnectionReturnObject()
     {
-        $this->assertTrue(is_object($this->_object->getDefaultConnection()));
+        $this->assertTrue(is_obj($this->_obj->getDefaultConnection()));
     }
 
     public function testGetSqlExists()
     {
-        $this->assertTrue(method_exists($this->_object, 'getSql'));
+        $this->assertTrue(method_exists($this->_obj, 'getSql'));
     }
 
     public function testGetSqlReturnArray()
     {
-        $this->assertTrue(is_array($this->_object->getSql('dataAtual')));
+        $this->assertTrue(is_array($this->_obj->getSql('dataAtual')));
     }
 }
