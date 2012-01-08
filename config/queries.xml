@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <connection name="default"
+                driver="mysql"
+                dsn="host=localhost;dbname=test"
+                user="teste"
+                password="teste" />
+
+    <query name="dataAtual" connection="default">
+        SELECT NOW() AS data;
+    </query>
+
+    <query name="criaFoo" connection="default">
+        CREATE TABLE IF NOT EXISTS `Foo` (
+            `id` INT(10) PRIMARY KEY AUTO_INCREMENT,
+            `nome` VARCHAR(200)
+        );
+    </query>
+
+    <query name="insereFoo" connection="default">
+        INSERT INTO `Foo` VALUES(NULL, :nome);
+    </query>
+
+    <query name="listaFoo" connection="default">
+        SELECT * FROM `Foo`;
+    </query>
+</metadata>

@@ -1,0 +1,65 @@
+<project name="Db" default="build" description="Db">
+    <property name="version" value="0.1" />
+
+    <!-- PHPUnit -->
+    <target name="phpunit">
+        <echo message="Testando" />
+
+        <phpunit printsummary="true" haltonfailure="true">
+            <formatter todir="./logs" type="xml"/>
+            <batchtest>
+                <fileset dir="./tests">
+                    <include name="*Test.php"/>
+                </fileset>
+            </batchtest>
+        </phpunit>
+    </target>
+
+    <!-- PHP CodeSniffer -->
+    <target name="phpcs">
+        <echo message="Verificando padrões de código" />
+
+        <phpcodesniffer standard="Zend"
+                        format="full"
+                        showWarnings="false"
+                        tabWidth="4"
+                        file="."
+                        docGenerator="Text"
+                        docFile="./logs/codesniffer.txt"
+                        encoding="UTF-8"
+                        haltonerror="true"
+                        allowedFileExtensions="php"
+                        ignorePatterns="./bin" />
+    </target>
+
+    <!-- PHP API Documentation -->
+    <target name="phpdoc">
+        <echo message="Gerando documentação" />
+
+        <phpdoc title="API Documentation"
+                destdir="./docs"
+                sourcecode="true"
+                quiet="true"
+                output="HTML:Smarty:PHP">
+            <fileset dir=".">
+                <include name="src/**/*.php" />
+            </fileset>
+        </phpdoc>
+    </target>
+
+    <!-- PHP cpd -->
+    <target name="phpcpd">
+        <echo message="Verificando duplicidade de código" />
+
+        <phpcpd>
+            <fileset dir="." id="filestocpd">
+                <include name="src/**/*.php" />
+            </fileset>
+            <formatter type="pmd" useFile="true" outfile="logs/phpcpd.xml"/>
+        </phpcpd>
+    </target>
+
+    <target name="build" depends="phpunit,phpcs,phpcpd,phpdoc">
+        <echo msg="Build terminado" />
+    </target>
+</project>
