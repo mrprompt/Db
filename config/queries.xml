@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
     <connection name="default"
-                driver="mysql"
-                dsn="host=localhost;dbname=test"
+                driver="sqlite"
+                dsn=":memory:"
                 user="teste"
                 password="teste" />
 

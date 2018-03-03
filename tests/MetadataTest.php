@@ -1,8 +1,7 @@
 <?php
 namespace DbConnection;
 
-require_once 'PHPUnit/Autoload.php';
-require_once dirname(__FILE__) . '/../../src/Metadata.php';
+use DbConnection\Metadata as Metadata;
 
 /**
  * Test class for Metadata.
@@ -16,7 +15,7 @@ class MetadataTest extends \PHPUnit_Framework_TestCase
      */
     protected $_obj;
 
-    const METADATA_PATH = '../config/queries.xml';
+    const METADATA_PATH = __DIR__ . '/../config/queries.xml';
 
     /**
      * Sets up the fixture, for example, opens a network connection.
@@ -54,7 +53,7 @@ class MetadataTest extends \PHPUnit_Framework_TestCase
 
     public function testSetXmlReturnObject()
     {
-        $object = is_obj($this->_obj->setXml(self::METADATA_PATH));
+        $object = is_object($this->_obj->setXml(self::METADATA_PATH));
         $this->assertTrue($object);
     }
 
@@ -70,7 +69,7 @@ class MetadataTest extends \PHPUnit_Framework_TestCase
 
     public function testGetConnectionReturnObject()
     {
-        $this->assertTrue(is_obj($this->_obj->getConnection('default')));
+        $this->assertTrue(is_object($this->_obj->getConnection('default')));
     }
 
     public function testGetDefaultConnectionExists()
@@ -80,7 +79,7 @@ class MetadataTest extends \PHPUnit_Framework_TestCase
 
     public function testGetDefaultConnectionReturnObject()
     {
-        $this->assertTrue(is_obj($this->_obj->getDefaultConnection()));
+        $this->assertTrue(is_object($this->_obj->getDefaultConnection()));
     }
 
     public function testGetSqlExists()

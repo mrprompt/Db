@@ -1,5 +1,9 @@
 # Classe Db
 
+[![Build Status](https://travis-ci.org/mrprompt/Db.svg?branch=master)](https://travis-ci.org/mrprompt/Db)
+[![Maintainability](https://api.codeclimate.com/v1/badges/5c046e0c00c1a010fdf2/maintainability)](https://codeclimate.com/github/mrprompt/Db/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/5c046e0c00c1a010fdf2/test_coverage)](https://codeclimate.com/github/mrprompt/Db/test_coverage)
+
 Db são classes simples para facilitar o uso do PDO  em pequenos projetos que
 não requeiram um grande ORM ou Framework.
 

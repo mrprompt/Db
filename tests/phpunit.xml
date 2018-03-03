@@ -1,9 +1,0 @@
-<phpunit colors="true">
-    <testsuite name="ApplicationTestSuite">
-        <directory>.</directory>
-    </testsuite>
-<!--    <logging>
-        <log type="coverage-text" target="./log/coverage/coverate.txt" charset="UTF-8"
-             yui="false" highlight="false" />
-    </logging>-->
-</phpunit>

@@ -1,8 +1,7 @@
 <?php
 namespace DbConnection;
 
-require_once 'PHPUnit/Autoload.php';
-require_once __DIR__ . '/../../src/Db.php';
+use DbConnection\Db as Db;
 
 /**
  * Test class for Db.
@@ -16,7 +15,7 @@ class DbTest extends \PHPUnit_Framework_TestCase
      */
     protected $_object;
 
-    const METADATA_PATH = '../config/queries.xml';
+    const METADATA_PATH = __DIR__ . '/../config/queries.xml';
 
     /**
      * Sets up the fixture, for example, opens a network connection.
