@@ -12,5 +12,5 @@ before_script:
 script:
   - ./vendor/bin/phpunit --coverage-clover build/logs/clover.xml
 
-#after_success:
-#  - ./vendor/bin/test-reporter --coverage-report build/logs/clover.xml
+after_success:
+ - ./vendor/bin/test-reporter --coverage-report build/logs/clover.xml
